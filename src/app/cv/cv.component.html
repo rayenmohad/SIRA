@@ -1,0 +1,35 @@
+<div id="cv-template">
+    <section class="cv-header">
+      <h1>{{ user.name }}</h1>
+      <p>{{ user.profession }}</p>
+    </section>
+    <section class="cv-content">
+      <div class="cv-section">
+        <h2>Contact Information</h2>
+        <p>Email: {{ user.email }}</p>
+        <p>Phone: {{ user.phone }}</p>
+        <p>LinkedIn: {{ user.linkedin }}</p>
+      </div>
+      <div class="cv-section">
+        <h2>Professional Experience</h2>
+        <div class="cv-item" *ngFor="let job of user.experience">
+          <h3>{{ job.title }} at {{ job.company }}</h3>
+          <p>{{ job.startDate }} - {{ job.endDate }}</p>
+          <ul>
+            <li *ngFor="let duty of job.duties">{{ duty }}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cv-section">
+        <h2>Education</h2>
+        <p>{{ user.education.degree }}, {{ user.education.institution }}</p>
+      </div>
+      <div class="cv-section">
+        <h2>Skills</h2>
+        <ul>
+          <li *ngFor="let skill of user.skills">{{ skill }}</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+  <button (click)="generatePDF()">Generate CV PDF</button>

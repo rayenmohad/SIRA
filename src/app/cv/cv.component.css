@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+
+
+#cv-template {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+}
+
+.cv-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cv-header h1 {
+  font-size: 2.5em;
+  color: #333;
+}
+
+.cv-header p {
+  font-size: 1.2em;
+  color: #777;
+}
+
+.cv-content .cv-section {
+  margin-bottom: 20px;
+}
+
+.cv-section h2 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ADD8E6;
+  padding-bottom: 5px;
+}
+
+.cv-section p,
+.cv-section ul {
+  font-size: 1em;
+  color: #555;
+  line-height: 1.5;
+}
+
+.cv-item h3 {
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.cv-item p {
+  font-size: 0.9em;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.cv-item ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1em;
+  background: #ADD8E6;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #87c0e6;
+}
