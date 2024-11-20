@@ -1,36 +1,31 @@
-
-  <section>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <div class="signup">
-      <div class="content">
-        <h2>Sign Up</h2>
-        <div class="form">
-          <div class="inputBox">
-            <input type="text" required>
-            <i>Full Name</i>
-          </div>
-          <div class="inputBox">
-            <input type="email" required>
-            <i>Email</i>
-          </div>
-          <div class="inputBox">
-            <input type="password" required>
-            <i>Password</i>
-          </div>
-          <div class="inputBox">
-            <input type="submit" value="Sign Up">
-          </div>
-          <div class="links">
-            <a routerLink="/login-page">Already have an account?</a>
-          </div>
+<section>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <div class="signup">
+    <div class="content">
+      <h2>Sign Up</h2>
+      <div class="form">
+        <div class="inputBox">
+          <input type="email" [(ngModel)]="email" name="email" required>
+          <i>Email</i>
+        </div>
+        <div class="inputBox">
+          <input type="password" [(ngModel)]="password" name="password" required>
+          <i>Password</i>
+        </div>
+        <div class="inputBox">
+          <input type="submit" value="Sign Up" (click)="submit()">
+        </div>
+        <div class="links">
+          <a routerLink="/login-page">Already have an account?</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>

@@ -2,42 +2,28 @@
 
   <section> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> 
 
-   <div class="signin"> 
-
-    <div class="content"> 
-
-     <h2>Sign In</h2> 
-
-     <div class="form"> 
-
-      <div class="inputBox"> 
-
-       <input type="text" required> <i>Username</i> 
-
-      </div> 
-
-      <div class="inputBox"> 
-
-       <input type="password" required> <i>Password</i> 
-
-      </div> 
-
-      <div class="links"> <a routerLink="/pass">Forgot Password</a>
-                          <a  routerLink="/signup">Don't have an account? Sign Up</a>
-
-      </div> 
-
-      <div class="inputBox"> 
-
-       <input type="submit" value="Login"> 
-
-      </div> 
-
-     </div> 
-
-    </div> 
-
-   </div> 
+    <div class="signin">
+      <div class="content">
+        <h2>Sign In</h2>
+        <div class="form">
+          <div class="inputBox">
+            <input type="text" [(ngModel)]="email"  name="email" required>
+            <i>Username</i>
+          </div>
+          <div class="inputBox">
+            <input type="password" [(ngModel)]="password" name="password" required>
+            <i>Password</i>
+          </div>
+          <div class="links">
+            <a routerLink="/pass">Forgot Password</a>
+            <a routerLink="/signup">Don't have an account? Sign Up</a>
+          </div>
+          <div class="inputBox">
+            <input type="submit" value="Login" (click)="submit()">
+          </div>
+        </div>
+      </div>
+    </div>
 
   </section> 
 

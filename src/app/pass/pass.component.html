@@ -1,21 +1,20 @@
-
-    <section>
-        <div class="forgot-password">
-            <div class="content">
-                <h2>Forgot Password</h2>
-                <form class="form">
-                    <div class="inputBox">
-                        <input type="email" required>
-                        <i>Email</i>
-                    </div>
-                    <div class="links">
-                        <a routerLink="/login-page">Back to Sign In</a>
-                    </div>
-                    <div class="inputBox">
-                        <input type="submit" value="Send Reset Link">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
+<section>
+    <div class="forgot-password">
+      <div class="content">
+        <h2>Forgot Password</h2>
+        <form class="form">
+          <div class="inputBox">
+            <input type="email" [(ngModel)]="email" name="email" required>
+            <i>Email</i>
+          </div>
+          <div class="links">
+            <a routerLink="/login-page">Back to Sign In</a>
+          </div>
+          <div class="inputBox">
+            <input type="submit" value="Send Reset Link" (click)="submit()">
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  
