@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-
+/* General Styles */
 * {
   margin: 0;
   padding: 0;
@@ -7,16 +6,23 @@
   font-family: 'Quicksand', sans-serif;
 }
 
-
-#cv-template {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
-  width: 100%;
+body {
+  font-size: 16px;
+  color: #333;
 }
 
+/* CV Template Styles */
+#cv-template {
+  background: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  width: 100%;
+  margin: 30px auto;
+}
+
+/* Header */
 .cv-header {
   text-align: center;
   margin-bottom: 20px;
@@ -32,12 +38,13 @@
   color: #777;
 }
 
+/* Sections */
 .cv-content .cv-section {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .cv-section h2 {
-  font-size: 1.5em;
+  font-size: 1.6em;
   color: #333;
   margin-bottom: 10px;
   border-bottom: 2px solid #ADD8E6;
@@ -46,9 +53,9 @@
 
 .cv-section p,
 .cv-section ul {
-  font-size: 1em;
+  font-size: 1.1em;
   color: #555;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .cv-item h3 {
@@ -68,10 +75,11 @@
   padding-left: 20px;
 }
 
+/* Buttons */
 button {
   margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 1em;
+  padding: 12px 24px;
+  font-size: 1.1em;
   background: #ADD8E6;
   border: none;
   border-radius: 4px;
@@ -80,4 +88,86 @@ button {
 
 button:hover {
   background: #87c0e6;
+}
+
+/* Form Inputs */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="url"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+input[type="url"]:focus {
+  outline: none;
+  border-color: #ADD8E6;
+}
+
+button {
+  width: 100%;
+}
+
+/* Professional CV Template Styles */
+#cv-professional-template {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 40px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#cv-professional-template .cv-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#cv-professional-template .cv-header h1 {
+  font-size: 3.2em;
+  font-weight: 600;
+  color: #333;
+}
+
+#cv-professional-template .cv-header p {
+  font-size: 1.6em;
+  color: #555;
+}
+
+#cv-professional-template .cv-section h2 {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ADD8E6;
+  padding-bottom: 5px;
+}
+
+#cv-professional-template .cv-section p,
+#cv-professional-template .cv-section ul {
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: #555;
+}
+
+#cv-professional-template .cv-job h3 {
+  font-size: 1.4em;
+  color: #333;
+}
+
+#cv-professional-template .cv-job ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+#cv-professional-template .cv-job p {
+  color: #777;
 }

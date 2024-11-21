@@ -25,7 +25,7 @@
                 
                 "glob": "**/*",
                  "input": "src/assets",
-    "output": "assets"
+                 "output": "assets"
               }
             ],
             "styles": [
@@ -35,7 +35,7 @@
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
-              "entry": "server.ts"
+            "entry": "server.ts"
             }
           },
           "configurations": {
@@ -89,7 +89,7 @@
               {
                 "glob": "**/*",
                  "input": "src/assets",
-    "output": "assets"
+                 "output": "assets"
               }
             ],
             "styles": [

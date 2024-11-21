@@ -1,88 +1,137 @@
-<div id="cv-template">
-  <form #cvForm="ngForm">
-    <section class="cv-header">
-      <label>
-        Name:
-        <input type="text" [(ngModel)]="user.name" name="name" required />
-      </label>
-      <label>
-        Profession:
-        <input type="text" [(ngModel)]="user.profession" name="profession" required />
-      </label>
-    </section>
+
+
+  <!-- CV Template (Form to input data) -->
+  <div id="cv-template">
+    <form #cvForm="ngForm" id="form1" name="form1">
+      <section class="cv-header">
+        <label>
+          Name:
+          <input type="text" [(ngModel)]="user.name" name="name" required />
+        </label>
+        <label>
+          Profession:
+          <input type="text" [(ngModel)]="user.profession" name="profession" required />
+        </label>
+      </section>
+
+      <section class="cv-content">
+        <div class="cv-section">
+          <h2>Contact Information</h2>
+          <label>
+            Email:
+            <input type="email" [(ngModel)]="user.email" name="email" required />
+          </label>
+          <label>
+            Phone:
+            <input type="tel" [(ngModel)]="user.phone" name="phone" required />
+          </label>
+          <label>
+            LinkedIn:
+            <input type="url" [(ngModel)]="user.linkedin" name="linkedin" />
+          </label>
+        </div>
+
+        <div class="cv-section">
+          <h2>Professional Experience</h2>
+          <div class="cv-item" *ngFor="let job of user.experience; let i = index">
+            <label>
+              Job Title:
+              <input type="text" [(ngModel)]="user.experience[i].title" name="jobTitle{{i}}" />
+            </label>
+            <label>
+              Company:
+              <input type="text" [(ngModel)]="user.experience[i].company" name="jobCompany{{i}}" />
+            </label>
+            <label>
+              Start Date:
+              <input type="date" [(ngModel)]="user.experience[i].startDate" name="jobStartDate{{i}}" />
+            </label>
+            <label>
+              End Date:
+              <input type="date" [(ngModel)]="user.experience[i].endDate" name="jobEndDate{{i}}" />
+            </label>
+            <div>
+              <label>Job Duties:</label>
+              <ul>
+                <li *ngFor="let duty of job.duties; let j = index">
+                  <input type="text" [(ngModel)]="user.experience[i].duties[j]" name="jobDuty{{i}}{{j}}" />
+                </li>
+              </ul>
+              <button type="button" (click)="addDuty(i)">Add Duty</button>
+            </div>
+          </div>
+          <button type="button" (click)="addExperience()">Add Experience</button>
+        </div>
+
+        <div class="cv-section">
+          <h2>Education</h2>
+          <label>
+            Degree:
+            <input type="text" [(ngModel)]="user.education.degree" name="degree" />
+          </label>
+          <label>
+            Institution:
+            <input type="text" [(ngModel)]="user.education.institution" name="institution" />
+          </label>
+        </div>
+
+        <div class="cv-section">
+          <h2>Skills</h2>
+          <ul>
+            <li *ngFor="let skill of user.skills; let i = index">
+              <input type="text" [(ngModel)]="user.skills[i]" name="skill{{i}}" />
+            </li>
+          </ul>
+          <button type="button" (click)="addSkill()">Add Skill</button>
+        </div>
+      </section>
+
+      <button type="submit" (click)="generatePDF()">Generate CV PDF</button>
+    </form>
+  </div>
+
+  <!-- Professional CV Template for PDF Generation -->
+  <div id="cv-professional-template" style="display: none;">
+    <div class="cv-header">
+      <h1>{{user.name}}</h1>
+      <p>{{user.profession}}</p>
+    </div>
 
     <section class="cv-content">
       <div class="cv-section">
         <h2>Contact Information</h2>
-        <label>
-          Email:
-          <input type="email" [(ngModel)]="user.email" name="email" required />
-        </label>
-        <label>
-          Phone:
-          <input type="tel" [(ngModel)]="user.phone" name="phone" required />
-        </label>
-        <label>
-          LinkedIn:
-          <input type="url" [(ngModel)]="user.linkedin" name="linkedin" />
-        </label>
+        <div class="cv-detail">
+          <p><strong>Email:</strong> {{user.email}}</p>
+          <p><strong>Phone:</strong> {{user.phone}}</p>
+          <p><strong>LinkedIn:</strong> <a href="{{user.linkedin}}" target="_blank">{{user.linkedin}}</a></p>
+        </div>
       </div>
 
       <div class="cv-section">
         <h2>Professional Experience</h2>
-        <div class="cv-item" *ngFor="let job of user.experience; let i = index">
-          <label>
-            Job Title:
-            <input type="text" [(ngModel)]="user.experience[i].title" name="jobTitle{{i}}" />
-          </label>
-          <label>
-            Company:
-            <input type="text" [(ngModel)]="user.experience[i].company" name="jobCompany{{i}}" />
-          </label>
-          <label>
-            Start Date:
-            <input type="date" [(ngModel)]="user.experience[i].startDate" name="jobStartDate{{i}}" />
-          </label>
-          <label>
-            End Date:
-            <input type="date" [(ngModel)]="user.experience[i].endDate" name="jobEndDate{{i}}" />
-          </label>
-          <div>
-            <label>Job Duties:</label>
+        <div *ngFor="let job of user.experience">
+          <div class="cv-job">
+            <h3>{{job.title}} at {{job.company}}</h3>
+            <p><strong>Duration:</strong> {{job.startDate}} - {{job.endDate}}</p>
             <ul>
-              <li *ngFor="let duty of job.duties; let j = index">
-                <input type="text" [(ngModel)]="user.experience[i].duties[j]" name="jobDuty{{i}}{{j}}" />
-              </li>
+              <li *ngFor="let duty of job.duties">{{duty}}</li>
             </ul>
-            <button type="button" (click)="addDuty(i)">Add Duty</button>
           </div>
         </div>
-        <button type="button" (click)=addExperience()>Add Experience</button>
       </div>
 
       <div class="cv-section">
         <h2>Education</h2>
-        <label>
-          Degree:
-          <input type="text" [(ngModel)]="user.education.degree" name="degree" />
-        </label>
-        <label>
-          Institution:
-          <input type="text" [(ngModel)]="user.education.institution" name="institution" />
-        </label>
+        <p><strong>{{user.education.degree}}</strong>, {{user.education.institution}}</p>
       </div>
 
       <div class="cv-section">
         <h2>Skills</h2>
         <ul>
-          <li *ngFor="let skill of user.skills; let i = index">
-            <input type="text" [(ngModel)]="user.skills[i]" name="skill{{i}}" />
-          </li>
+          <li *ngFor="let skill of user.skills">{{skill}}</li>
         </ul>
-        <button type="button" (click)=addSkill()>Add Skill</button>
       </div>
     </section>
+  </div>
 
-    <button type="submit" (click)=generatePDF()>Generate CV PDF</button>
-  </form>
-</div>
+

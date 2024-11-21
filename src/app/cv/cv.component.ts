@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from '../dataservice.service';
+import { Component } from '@angular/core';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-import { Inject } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -14,7 +12,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './cv.component.html',
   styleUrls: ['./cv.component.css']
 })
-export class CvComponent implements OnInit {
+export class CvComponent {
   user = {
     name: '',
     profession: '',
@@ -37,15 +35,6 @@ export class CvComponent implements OnInit {
     skills: ['']
   };
 
-  constructor(@Inject(DataService) private dataservice: DataService) {}
-
-  ngOnInit() {
-    this.dataservice.getUserData().subscribe((data: any) => {
-      this.user = data['users'][0];
-    });
-    console.log(this.user);
-  }
-
   addExperience() {
     this.user.experience.push({
       title: '',
@@ -56,25 +45,44 @@ export class CvComponent implements OnInit {
     });
   }
 
-  addDuty(index: number) {
-    this.user.experience[index].duties.push('');
+  addDuty(i: number) {
+    this.user.experience[i].duties.push('');
   }
 
   addSkill() {
     this.user.skills.push('');
   }
-
   generatePDF() {
-    const data = document.getElementById('cv-template');
-    if (data) {
-      html2canvas(data).then(canvas => {
-        const imgWidth = 208;
-        const imgHeight = canvas.height * imgWidth / canvas.width;
-        const imgData = canvas.toDataURL('image/png');
-        const pdf = new jsPDF('p', 'mm', 'a4');
-        pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-        pdf.save('cv.pdf');
-      });
+    const template = document.getElementById('cv-professional-template');
+    if (template) {
+      // Show the template before capturing
+      template.style.display = 'block';
+
+      // Give time for Angular data binding to update the view
+      setTimeout(() => {
+        html2canvas(template).then(canvas => {
+          const imgWidth = 208;
+          const imgHeight = canvas.height * imgWidth / canvas.width;
+          const imgData = canvas.toDataURL('image/png');
+          const pdf = new jsPDF('p', 'mm', 'a4');
+
+          if (imgData && imgData.includes('data:image/png;base64,')) {
+            pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+            pdf.save('cv.pdf');
+          } else {
+            console.error('Generated image data is invalid or corrupt');
+          }
+
+          // Hide the template again after generating the PDF
+          template.style.display = 'none';
+        }).catch(err => {
+          console.error('Error generating canvas:', err);
+          // Hide the template again if an error occurs
+          template.style.display = 'none';
+        });
+      }, 100); // Timeout to allow Angular to update data bindings before capturing
+    } else {
+      console.error('Element with id "cv-professional-template" not found');
     }
   }
 }
