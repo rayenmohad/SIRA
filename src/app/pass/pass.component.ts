@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { LoginPageComponent } from '../login-page/login-page.component';
 import { FormsModule } from '@angular/forms';
 import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-pass',
   standalone: true,
-  imports: [RouterLink ,LoginPageComponent,FormsModule ],
+  imports: [RouterLink ,FormsModule ],
   templateUrl: './pass.component.html',
   styleUrl: './pass.component.css'
 })

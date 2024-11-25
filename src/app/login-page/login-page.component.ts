@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { SignupComponent } from '../signup/signup.component';
-import { PassComponent } from '../pass/pass.component';
 import { UserService } from '../user.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router'; 
@@ -9,7 +7,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login-page',
   standalone: true,
-  imports: [RouterLink,SignupComponent, PassComponent,FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.css'
 })
