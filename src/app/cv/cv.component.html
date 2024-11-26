@@ -54,7 +54,7 @@
             <div>
               <label>Job Duties:</label>
               <ul>
-                <li *ngFor="let duty of job.duties; let j = index">
+                <li *ngFor="let duty of job.duties; let j = index ; trackBy: trackByIndex">
                   <input type="text" [(ngModel)]="user.experience[i].duties[j]" name="jobDuty{{i}}{{j}}" />
                 </li>
               </ul>
@@ -79,12 +79,13 @@
         <div class="cv-section">
           <h2>Skills</h2>
           <ul>
-            <li *ngFor="let skill of user.skills; let i = index">
-              <input type="text" [(ngModel)]="user.skills[i]" name="skill{{i}}" />
+            <li *ngFor="let skill of user.skills; let i = index; trackBy: trackByIndex">
+              <input type="text" [(ngModel)]="user.skills[i]" [id]="'skill' + i" [name]="'skill' + i" />
             </li>
           </ul>
           <button type="button" (click)="addSkill()">Add Skill</button>
         </div>
+        
       </section>
 
       <button type="submit" (click)="generatePDF()">Generate CV PDF</button>

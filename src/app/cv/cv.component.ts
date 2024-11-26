@@ -52,12 +52,15 @@ export class CvComponent {
   addSkill() {
     this.user.skills.push('');
   }
+  trackByIndex(index: number): number {
+    return index; // Return the index to help Angular track the items more efficiently
+  }
+  
   generatePDF() {
     const template = document.getElementById('cv-professional-template');
     if (template) {
       // Show the template before capturing
       template.style.display = 'block';
-
       // Give time for Angular data binding to update the view
       setTimeout(() => {
         html2canvas(template).then(canvas => {
