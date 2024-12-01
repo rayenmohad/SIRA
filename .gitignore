@@ -1,5 +1,3 @@
-# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
-
 # Compiled output
 /dist
 /tmp
@@ -12,6 +10,7 @@ npm-debug.log
 yarn-error.log
 
 # IDEs and editors
+.vscode/
 .idea/
 .project
 .classpath
@@ -20,7 +19,7 @@ yarn-error.log
 .settings/
 *.sublime-workspace
 
-# Visual Studio Code
+# Visual Studio Code specific settings (keep relevant settings files)
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -40,3 +39,23 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# TypeScript build output
+*.tsbuildinfo
+
+# Environment files (for sensitive data)
+src/environments/*
+
+# Ignore package-lock.json and package.json if you don’t want them in the repo
+# package-lock.json
+# package.json
+
+# Ignore log files
+*.log
+
+# Ignore temporary or backup files from editors
+*~
+*.bak
+
+# Ignore custom build output (optional, depending on your setup)
+dist/

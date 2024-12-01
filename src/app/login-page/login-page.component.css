@@ -9,6 +9,7 @@
 
 
 section {
+  /* Full-screen layout with interactive spans */
   position: fixed; /* Changed from absolute to fixed */
   top: 0;
   left: 0;
@@ -23,6 +24,7 @@ section {
 }
 
 section::before {
+  /* Animated background gradient */
   content: '';
   position: absolute;
   width: 100%;
@@ -55,6 +57,7 @@ section span:hover {
   transition: 0s;
 }
 
+/* Login form styling */
 section .signin {
   position: absolute;
   width: 400px;
@@ -84,6 +87,7 @@ section .signin .content h2 {
   text-transform: uppercase;
 }
 
+ /* Input styling */
 section .signin .content .form {
   width: 100%;
   display: flex;
