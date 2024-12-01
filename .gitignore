@@ -40,3 +40,33 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Files to ignore that are part of the Angular project
+# Build and IDE configurations
+.angular/
+
+# Ignore environment files, if sensitive information (like API keys) is stored there
+src/environments/*
+
+# Ignore package-lock.json or package.json if you do not want to commit them (not recommended)
+# package-lock.json
+# package.json
+
+# Ignore log files if created by your app
+*.log
+
+# Ignore temporary or backup files from editors
+*~
+*.bak
+
+# Ignore TypeScript build output
+*.tsbuildinfo
+
+# Ignore coverage folder if not using for CI/CD purposes
+/coverage/
+
+# Ignore test coverage output
+/coverage/
+
+# Ignore custom build output (optional, depending on your build setup)
+dist/
