@@ -19,7 +19,7 @@ yarn-error.log
 .settings/
 *.sublime-workspace
 
-# Visual Studio Code specific settings
+# Visual Studio Code specific settings (keep relevant settings files)
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -40,22 +40,22 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# Ignore TypeScript build output
+# TypeScript build output
 *.tsbuildinfo
 
 # Environment files (for sensitive data)
 src/environments/*
 
-# Ignore package-lock.json and package.json (if you do not want them in the repo)
+# Ignore package-lock.json and package.json if you don’t want them in the repo
 # package-lock.json
 # package.json
 
-# Ignore log files if created by your app
+# Ignore log files
 *.log
 
 # Ignore temporary or backup files from editors
 *~
 *.bak
 
-# Ignore custom build output (optional, depending on your build setup)
+# Ignore custom build output (optional, depending on your setup)
 dist/
