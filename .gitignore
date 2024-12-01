@@ -10,20 +10,21 @@ npm-debug.log
 yarn-error.log
 
 # IDEs and editors
+.vscode/
 .idea/
 .project
 .classpath
 .c9/
-.launch
+*.launch
 .settings/
+*.sublime-workspace
 
-
-# Visual Studio Code
+# Visual Studio Code specific settings
 .vscode/*
-.vscode/settings.json
-.vscode/tasks.json
-.vscode/launch.json
-.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 .history/*
 
 # Miscellaneous
@@ -39,14 +40,13 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# Files to ignore that are part of the Angular project
-# Build and IDE configurations
-.angular/
+# Ignore TypeScript build output
+*.tsbuildinfo
 
-# Ignore environment files, if sensitive information (like API keys) is stored there
+# Environment files (for sensitive data)
 src/environments/*
 
-# Ignore package-lock.json or package.json if you do not want to commit them (not recommended)
+# Ignore package-lock.json and package.json (if you do not want them in the repo)
 # package-lock.json
 # package.json
 
@@ -54,16 +54,8 @@ src/environments/*
 *.log
 
 # Ignore temporary or backup files from editors
-.bak
-
-# Ignore TypeScript build output
-.tsbuildinfo
-
-# Ignore coverage folder if not using for CI/CD purposes
-/coverage/
-
-# Ignore test coverage output
-/coverage/
+*~
+*.bak
 
 # Ignore custom build output (optional, depending on your build setup)
 dist/
